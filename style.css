@@ -1,0 +1,263 @@
+/* 
+   Modern Glassmorphism & Dark Mode Aesthetic 
+   Font: Outfit from Google Fonts
+*/
+
+:root {
+    /* Color Palette - Cyberpunk Dark/Neon Minimalist */
+    --bg-color: #0f172a; /* Slate 900 */
+    --text-color: #f8fafc; /* Slate 50 */
+    --text-muted: #cbd5e1; /* Slate 300 */
+    
+    /* Shapes Colors */
+    --shape-1: rgba(99, 102, 241, 0.5); /* Indigo */
+    --shape-2: rgba(236, 72, 153, 0.4); /* Pink */
+    --shape-3: rgba(16, 185, 129, 0.3); /* Emerald */
+
+    /* Glass Effect Variables */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+    padding: 2rem 1rem;
+}
+
+/* --- Animated Background Shapes --- */
+.bg-shape {
+    position: absolute;
+    filter: blur(100px);
+    z-index: 0;
+    opacity: 0.8;
+    animation: floating 12s infinite alternate ease-in-out;
+}
+
+.shape1 {
+    top: -10%;
+    left: -10%;
+    width: 350px;
+    height: 350px;
+    background: var(--shape-1);
+    border-radius: 50%;
+}
+
+.shape2 {
+    bottom: -10%;
+    right: -5%;
+    width: 300px;
+    height: 300px;
+    background: var(--shape-2);
+    border-radius: 50%;
+    animation-delay: -4s;
+    animation-duration: 15s;
+}
+
+.shape3 {
+    top: 40%;
+    right: 30%;
+    width: 250px;
+    height: 250px;
+    background: var(--shape-3);
+    border-radius: 50%;
+    animation-delay: -8s;
+}
+
+@keyframes floating {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-30px) scale(1.1); }
+}
+
+/* --- Main Container --- */
+.container {
+    width: 100%;
+    max-width: 480px;
+    position: relative;
+    z-index: 1; /* Content above background shapes */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- Profile Section --- */
+.profile {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.avatar-container {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.2rem auto;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    position: relative;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--bg-color);
+}
+
+.name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.bio {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    max-width: 320px;
+    margin: 0 auto;
+    line-height: 1.4;
+}
+
+/* --- Links Container --- */
+.links-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    perspective: 1000px;
+}
+
+/* --- Link Buttons (Glassmorphism) --- */
+.link-btn {
+    text-decoration: none;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    padding: 1.2rem;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: fadeInUp 0.8s ease-out backwards;
+}
+
+/* Stagger animations for each button */
+.link-btn:nth-child(1) { animation-delay: 0.2s; }
+.link-btn:nth-child(2) { animation-delay: 0.3s; }
+.link-btn:nth-child(3) { animation-delay: 0.4s; }
+
+.glass-effect {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+}
+
+/* Button Content */
+.btn-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.btn-text {
+    flex: 1;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    z-index: 2;
+    margin-right: 40px; /* Balance icon space */
+}
+
+/* Hover Effects */
+.link-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 100%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+    z-index: 1;
+}
+
+.link-btn:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.link-btn:hover::before {
+    transform: translateX(100%);
+}
+
+.link-btn:hover .btn-icon {
+    transform: scale(1.2) rotate(-5deg);
+}
+
+/* Specific Hover Accents (Optional subtle glows) */
+.link-btn:hover { text-shadow: 0 0 8px rgba(255,255,255,0.3); }
+
+/* --- Footer --- */
+.footer {
+    margin-top: 3rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    opacity: 0.6;
+    animation: fadeIn 1s ease-out 0.8s backwards;
+}
+
+/* --- Entry Animations --- */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 400px) {
+    .btn-text {
+        font-size: 1rem;
+    }
+    .profile {
+        margin-bottom: 2rem;
+    }
+    .avatar-container {
+        width: 100px;
+        height: 100px;
+    }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Links</title>
+    <meta name="description" content="Bem-vindo(a) à minha página de links! Encomendas, portfólio e mais.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Animated Shapes -->
+    <div class="bg-shape shape1"></div>
+    <div class="bg-shape shape2"></div>
+    <div class="bg-shape shape3"></div>
+
+    <div class="container">
+        <!-- Header / Profile Section -->
+        <header class="profile">
+            <div class="avatar-container">
+                <img src="avatar.png" alt="Foto de Perfil" class="avatar" id="profile-img">
+            </div>
+            <h1 class="name">Seu Nome / Marca</h1>
+            <p class="bio">Uma frase de impacto legal que descreva o que você faz ou o que a pessoa vai encontrar aqui.</p>
+        </header>
+
+        <!-- Links Container -->
+        <main class="links-container">
+            <!-- Website Link -->
+            <a href="https://seusite.com" target="_blank" rel="noopener noreferrer" class="link-btn glass-effect" id="btn-website">
+                <div class="btn-icon">
+                    <i class="fa-solid fa-globe"></i>
+                </div>
+                <span class="btn-text">Acessar Meu Site</span>
+            </a>
+
+            <!-- Instagram Link -->
+            <a href="https://instagram.com/seuusuario" target="_blank" rel="noopener noreferrer" class="link-btn glass-effect instagram" id="btn-instagram">
+                <div class="btn-icon">
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+                <span class="btn-text">Siga no Instagram</span>
+            </a>
+
+            <!-- WhatsApp Link -->
+            <a href="https://wa.me/5511999999999?text=Olá,%20vim%20pelo%20seu%20link!" target="_blank" rel="noopener noreferrer" class="link-btn glass-effect whatsapp" id="btn-whatsapp">
+                <div class="btn-icon">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <span class="btn-text">Fale comigo no WhatsApp</span>
+            </a>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; <span id="year">2026</span> Todos os direitos reservados.</p>
+        </footer>
+    </div>
+    
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
