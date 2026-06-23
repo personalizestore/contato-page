@@ -1,76 +1,157 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meus Links</title>
-    <meta name="description" content="Bem-vindo(a) à minha página de links! Encomendas, portfólio e mais.">
-    <!-- Google Fonts -->
+    <title>Obrigado pela sua compra! | Alpha Personalize</title>
+    <!-- Google Fonts: Outfit (headings) and Inter (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome CDN for modern icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Core stylesheet -->
+    <link rel="stylesheet" href="style.css?v=1.2">
 </head>
-
 <body>
-    <!-- Background Animated Shapes -->
-    <div class="bg-shape shape1"></div>
-    <div class="bg-shape shape2"></div>
-    <div class="bg-shape shape3"></div>
+    <!-- Background elements for high-end aesthetic -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
 
     <div class="container">
-        <!-- Header / Profile Section -->
-        <header class="profile">
-            <div class="avatar-container">
-                <img src="logo.png" alt="Logo" class="avatar" id="profile-img">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo-container" style="width: 80px !important; height: 80px !important; border-radius: 50% !important; background: var(--gradient-accent) !important; padding: 2px !important; display: flex !important; justify-content: center !important; align-items: center !important; box-shadow: 0 8px 30px rgba(192, 132, 252, 0.3) !important; margin-bottom: 16px !important; flex-shrink: 0 !important; overflow: hidden !important;">
+                <img src="logo.png" alt="Logo Alpha Personalize" class="shop-logo" style="width: 100% !important; height: 100% !important; object-fit: contain !important; border-radius: 50% !important; background-color: #111827 !important; padding: 8px !important; display: block !important;">
             </div>
-            <h1 class="name">Alpha Personalize</h1>
-            <p class="bio">Mais que adesivos, identidade..
-            </p>
+            <h1 class="shop-name">Alpha Personalize</h1>
+            <p class="welcome-badge"><i class="fa-solid fa-sparkles text-accent"></i> Seu pacote chegou! <i class="fa-solid fa-sparkles text-accent"></i></p>
+            <p class="welcome-text">Preparamos tudo com muito amor e carinho. Escaneie, explore e aproveite as surpresas abaixo!</p>
         </header>
 
-        <!-- Links Container -->
-        <main class="links-container">
-            <!-- Website Link -->
-            <a href="https://seusite.com" target="_blank" rel="noopener noreferrer" class="link-btn glass-effect"
-                id="btn-website">
-                <div class="btn-icon">
-                    <i class="fa-solid fa-globe"></i>
+        <main class="main-content">
+            <!-- Gift Section (Interactive Coupon) -->
+            <section class="card gift-card" id="coupon-section">
+                <div class="card-glow"></div>
+                <div class="gift-icon-wrapper">
+                    <i class="fa-solid fa-gift gift-icon"></i>
                 </div>
-                <span class="btn-text">Acessar Meu Site</span>
-            </a>
+                <h2 class="section-title">Um presente para você!</h2>
+                <p class="section-desc">Toque abaixo para revelar um cupom especial para a sua próxima compra.</p>
+                
+                <div class="coupon-wrapper" id="coupon-wrapper">
+                    <button class="btn btn-primary btn-reveal" id="btn-reveal">
+                        <span class="btn-content">
+                            <i class="fa-solid fa-unlock-keyhole"></i> Revelar Cupom
+                        </span>
+                    </button>
+                    <div class="coupon-revealed hidden" id="coupon-display">
+                        <span class="coupon-code" id="coupon-code">OBRIGADO10</span>
+                        <button class="btn-copy" id="btn-copy" aria-label="Copiar cupom">
+                            <i class="fa-regular fa-copy" id="copy-icon"></i>
+                            <span id="copy-text">Copiar</span>
+                        </button>
+                    </div>
+                    <a href="https://seusite.com.br" target="_blank" rel="noopener" class="btn btn-shop-cta hidden" id="btn-shop-cta">
+                        Ir para a Loja Usar Cupom <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    </a>
+                </div>
+                <p class="coupon-subtext hidden" id="coupon-subtext">*Válido por 30 dias em todo o site.</p>
+            </section>
 
-            <!-- Instagram Link -->
-            <a href="https://instagram.com/alpha.personalize" target="_blank" rel="noopener noreferrer"
-                class="link-btn glass-effect instagram" id="btn-instagram">
-                <div class="btn-icon">
-                    <i class="fa-brands fa-instagram"></i>
-                </div>
-                <span class="btn-text">Siga no Instagram</span>
-            </a>
+            <!-- Links Hub Section -->
+            <section class="links-section">
+                <h2 class="sr-only">Links Importantes</h2>
+                
+                <!-- Website Link -->
+                <a href="https://seusite.com.br" target="_blank" rel="noopener" class="link-item featured ripple">
+                    <div class="link-icon bg-website">
+                        <i class="fa-solid fa-store"></i>
+                    </div>
+                    <div class="link-info">
+                        <div class="badge-wrapper">
+                            <span class="featured-badge">Loja Oficial</span>
+                        </div>
+                        <h3>Visitar Nosso Site</h3>
+                        <p>Compre com frete grátis ou novidades</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                </a>
 
-            <!-- WhatsApp Link -->
-            <a href="https://wa.me/5519996548833?text=Olá,%20vim%20pelo%20seu%20link!" target="_blank"
-                rel="noopener noreferrer" class="link-btn glass-effect whatsapp" id="btn-whatsapp">
-                <div class="btn-icon">
-                    <i class="fa-brands fa-whatsapp"></i>
+                <!-- Instagram Link -->
+                <a href="https://instagram.com/sualoja" target="_blank" rel="noopener" class="link-item ripple">
+                    <div class="link-icon bg-instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div class="link-info">
+                        <h3>Siga-nos no Instagram</h3>
+                        <p>Acompanhe novidades diárias e bastidores</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                </a>
+
+                <!-- WhatsApp Link -->
+                <a href="https://wa.me/5511999999999?text=Ol%C3%A1%21+Acabei+de+receber+minha+encomenda+e+gostaria+de+falar+com+voc%C3%AAs." target="_blank" rel="noopener" class="link-item ripple">
+                    <div class="link-icon bg-whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <div class="link-info">
+                        <h3>Fale no WhatsApp</h3>
+                        <p>Suporte rápido, dúvidas ou sugestões</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                </a>
+            </section>
+
+            <!-- Share/Unboxing Guide Section -->
+            <section class="card share-card">
+                <div class="share-icon-wrapper">
+                    <i class="fa-solid fa-camera-retro"></i>
                 </div>
-                <span class="btn-text">Fale comigo no WhatsApp</span>
-            </a>
+                <h2 class="section-title">Mostre seu Unboxing! 📸</h2>
+                <p class="section-desc">Ficamos muito felizes em ver nossos produtos em suas mãos. Faça um Stories ou Post marcando nossa loja!</p>
+                <div class="instagram-handle-box">
+                    <span class="instagram-handle" id="instagram-handle">@alphapersonalize</span>
+                    <button class="btn-copy-handle" id="btn-copy-handle" aria-label="Copiar arroba">
+                        <i class="fa-regular fa-copy" id="handle-copy-icon"></i>
+                        <span>Copiar @</span>
+                    </button>
+                </div>
+                <p class="share-incentive">Nós repostamos os melhores unboxings no nosso perfil! ✨</p>
+            </section>
+
+            <!-- Interactive Review Section -->
+            <section class="card rating-card" id="rating-section">
+                <h2 class="section-title">O que achou do seu pedido?</h2>
+                <p class="section-desc">Sua opinião é extremamente importante para nós. Avalie abaixo:</p>
+                
+                <div class="stars-container" id="stars-container">
+                    <button class="star-btn" data-rating="1" aria-label="1 Estrela"><i class="fa-regular fa-star"></i></button>
+                    <button class="star-btn" data-rating="2" aria-label="2 Estrelas"><i class="fa-regular fa-star"></i></button>
+                    <button class="star-btn" data-rating="3" aria-label="3 Estrelas"><i class="fa-regular fa-star"></i></button>
+                    <button class="star-btn" data-rating="4" aria-label="4 Estrelas"><i class="fa-regular fa-star"></i></button>
+                    <button class="star-btn" data-rating="5" aria-label="5 Estrelas"><i class="fa-regular fa-star"></i></button>
+                </div>
+
+                <div class="rating-feedback hidden" id="rating-feedback">
+                    <p class="feedback-message" id="feedback-message"></p>
+                    <a href="#" target="_blank" rel="noopener" class="btn btn-secondary" id="btn-feedback-action">
+                        <span id="btn-feedback-text">Falar Conosco</span> <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </section>
         </main>
 
-        <!-- Footer -->
         <footer class="footer">
-            <p>&copy; <span id="year">2026</span> Todos os direitos reservados.</p>
+            <p>&copy; <span id="current-year">2026</span> Alpha Personalize. Feito com carinho para você.</p>
         </footer>
     </div>
 
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+    <!-- JS Canvas Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <!-- Core Application Logic -->
+    <script src="app.js"></script>
 </body>
-
 </html>
